@@ -28,6 +28,22 @@ function setup() {
 function draw() {
 	image(backgroundImg, 0, 0);
 
+	var pooX;
+	var watertouch = 396
+
+	if (pooY > 385) {
+		image(watersplashImg, pigeonX, watertouch);
+	}
+
+	if (mouseIsPressed) {
+		pooX = mouseX;
+		pooY += 5;
+		if (pooY > 430) {
+			pooY = 120;
+		}
+	}
+	image(pooImg, pigeonX + 45, pooY);
+
 	//animate pigeon & birds
 	birdsX += 0.6;
 	if (birdsX > 665) {
@@ -44,22 +60,4 @@ function draw() {
 		image(pigeonpooImg, pigeonX, 100);
 	}
 
-
-
-	var pooX;
-	var watertouch = 396
-
-
-	if (mouseIsPressed) {
-		pooX = mouseX;
-		pooY += 5;
-		if (pooY > 430) {
-			pooY = 120;
-		}
-	}
-	image(pooImg, pigeonX + 45, pooY);
-
-	if (pooY > 385) {
-		image(watersplashImg, pigeonX, watertouch);
-	}
 }
