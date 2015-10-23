@@ -9,9 +9,9 @@ var pooImg;
 var watersplashImg;
 var birdsImg;
 
-var pigeonX = -100
-var birdsX = -300
-var pooY = 130
+var pigeonX = -100;
+var birdsX = -300;
+var pooY = 130;
 
 //upload images
 
@@ -27,6 +27,7 @@ function preload() {
 
 function setup() {
 	createCanvas(800, 600);
+
 }
 
 function draw() {
@@ -58,12 +59,17 @@ function draw() {
 		birdsX = 600;
 	}
 	image(birdsImg, birdsX, 120);
-
+	var pigeonfly = random(1);
 	pigeonX += 1;
 	if (pigeonX > 607) {
 		pigeonX = -100;
 	}
-	image(pigeonImg, pigeonX, 100);
+	if (pigeonfly < 0.5) {
+		image(pigeonImg, pigeonX, 100);
+	} else {
+		image(birdsImg, pigeonX, 100);
+	}
+
 	if (mouseIsPressed) {
 		image(pigeonpooImg, pigeonX, 100);
 	}
