@@ -7,7 +7,9 @@ var pigeonImg;
 var pigeonpooImg;
 var pooImg;
 var watersplashImg;
-var birdsImg;
+var cloudImg;
+var pigeontwoImg;
+var waterImg
 
 var pigeonX = -100;
 var cloudX = -300;
