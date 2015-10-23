@@ -17,11 +17,12 @@ var pooY = 130;
 
 function preload() {
 	backgroundImg = loadImage("background1.png");
-	pigeonImg = loadImage("pigeon1.jpg");
+	pigeonImg = loadImage("pigeon1.png");
 	pigeonpooImg = loadImage("pigeonpoopose.jpg");
 	pooImg = loadImage("poo.jpg");
 	watersplashImg = loadImage("watersplash.jpg");
-	birdsImg = loadImage("birds.jpg");
+	pigeontwoImg = loadImage("pigeon2.png");
+	cloudImg = loadImage("clouds.png")
 }
 
 
@@ -58,7 +59,8 @@ function draw() {
 	if (birdsX < -10) {
 		birdsX = 600;
 	}
-	image(birdsImg, birdsX, 120);
+	image(cloudImg, birdsX, 50);
+
 	var pigeonfly = random(1);
 	pigeonX += 1;
 	if (pigeonX > 607) {
@@ -67,7 +69,7 @@ function draw() {
 	if (pigeonfly < 0.5) {
 		image(pigeonImg, pigeonX, 100);
 	} else {
-		image(birdsImg, pigeonX, 100);
+		image(pigeontwoImg, pigeonX, 100);
 	}
 
 	if (mouseIsPressed) {
