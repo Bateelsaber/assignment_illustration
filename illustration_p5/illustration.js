@@ -14,6 +14,8 @@ var waterImg
 var pigeonX = -100;
 var cloudX = -300;
 var pooY = 130;
+var waterX = -10;
+var waterlayerx = 10;
 
 //upload images
 
@@ -38,16 +40,35 @@ function draw() {
 	// set up background images
 
 	image(backgroundImg, 0, 0);
-	image(waterImg, 0, 300);
+
+	waterX += 0.2;
+	if (waterX > 10) {
+		waterX = -10;
+	}
+	image(waterImg, waterX, 300);
+
+	waterlayerx -= 0.2;
+	if (waterlayerx < -10) {
+		waterlayerx = 10;
+	}
+	image(waterImg, waterlayerx, 370);
+
+
 	// animating poo touching water
-	if (mouseIsPressed) {
+	if (mouseIsPressed &&
+		mouseX > pigeonX - 20 &&
+		mouseX < pigeonX + 150 &&
+		mouseY > 80 &&
+		mouseY < 200) {
 		pooX = mouseX;
 		pooY += 5;
-		if (pooY > 430) {
-			pooY = 120;
-		}
+
 	}
 	image(pooImg, pigeonX + 45, pooY);
+	if (pooY > 430) {
+		pooY = 120;
+	}
+
 
 	var pooX;
 	var watertouch = 396
@@ -66,9 +87,14 @@ function draw() {
 
 	//animate pigeon
 
-	if (mouseIsPressed) {
+	if (mouseIsPressed &&
+		mouseX > pigeonX - 20 &&
+		mouseX < pigeonX + 150 &&
+		mouseY > 80 &&
+		mouseY < 200) {
 		image(pigeonpooImg, pigeonX, 70);
 	} else {
+		frameRate(30);
 		var pigeonfly = random(1);
 		pigeonX -= 1;
 		if (pigeonX < -10) {
